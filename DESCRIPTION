@@ -1,0 +1,27 @@
+Package: clauderepo
+Type: Package
+Title: Advanced Meta-Analysis Research Compendium
+Version: 0.1.0
+Authors@R: person("Mahmood", "Ahmad", email = "mahmood.ahmad@ahmadiyya.org", role = c("aut", "cre"))
+Description: A centralized repository for advanced meta-analysis methods, 
+    integrating Bayesian hierarchical models, network meta-analysis, 
+    and overfitting diagnostics.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 4.1.0)
+Imports:
+    ggplot2,
+    metafor,
+    dplyr,
+    scales,
+    stats,
+    utils
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    rjags,
+    brms
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr
