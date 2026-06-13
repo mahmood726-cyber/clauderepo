@@ -36,8 +36,19 @@ standardize_data <- function(data) {
     }
   }
   
-  if ("se" %in% names(std_data)) std_data$vi <- std_data$se^2
-  
+  # Fail closed on missing required fields rather than returning a
+  # silently malformed object that breaks downstream pooling.
+  if (!"yi" %in% names(std_data)) {
+    stop("standardize_data: no effect-size column found (one of: ",
+         paste(effect_cols, collapse = ", "), ")")
+  }
+  if (!"se" %in% names(std_data)) {
+    stop("standardize_data: no standard-error column found (one of: ",
+         paste(se_cols, collapse = ", "), ")")
+  }
+
+  std_data$vi <- std_data$se^2
+
   return(std_data)
 }
 
